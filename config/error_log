@@ -1,0 +1,68 @@
+[05-Oct-2023 00:32:57 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/logging.php on line 20
+[05-Oct-2023 00:32:57 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/broadcasting.php on line 18
+[05-Oct-2023 00:32:57 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/filesystems.php on line 16
+[05-Oct-2023 00:33:05 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/ttpanel/public_html/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/view.php on line 17
+[05-Oct-2023 00:33:05 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/app.php on line 16
+[05-Oct-2023 00:33:10 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/hashing.php on line 32
+[05-Oct-2023 00:33:10 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/session.php on line 21
+[05-Oct-2023 00:33:20 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/logging.php on line 20
+[05-Oct-2023 00:33:21 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/broadcasting.php on line 18
+[05-Oct-2023 00:33:21 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/filesystems.php on line 16
+[05-Oct-2023 00:33:24 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/filesystems.php on line 16
+[05-Oct-2023 00:33:24 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/ttpanel/public_html/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/view.php on line 17
+[05-Oct-2023 00:33:25 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/app.php on line 16
+[05-Oct-2023 00:33:39 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/hashing.php on line 32
+[05-Oct-2023 00:33:40 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/session.php on line 21
+[05-Oct-2023 00:33:52 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ttpanel/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/hashing.php on line 32
+[05-Oct-2023 00:33:55 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/ttpanel/public_html/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/ttpanel/public_html/config/view.php on line 17
