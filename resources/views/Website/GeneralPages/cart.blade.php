@@ -7,6 +7,13 @@
     $minimum_items=GeneralSettingsClass::getRequiredValue('_minimum_items');
     
 @endphp
+
+<style>
+    .contact__info{
+        padding: 8px !important ;
+    }
+</style>
+
 @section('content')
     <!-- Section 1 -->
     <section class="about-sec1">

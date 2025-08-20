@@ -1,6 +1,7 @@
 @extends('Website.Includes.header', ['meta_Details' => $meta_details])
 @section('content')
 <!-- Section 1 -->
+
 <section>
     <div id="carouselExampleIndicators" class="carousel slide carousel-vertical-down" data-bs-ride="carousel"
         data-bs-interval="3000">
@@ -315,7 +316,7 @@
                             </div>
                             <div class="product-details">
                                 <a class="Product_Links" href="/product-detail/{{ $product->permalink }}">
-                                    <h5 class="Product_card-title">{{ strlen($product->title) > 24 ? substr($product->title, 0, 24) . '...' : $product->title }}</h5>
+                                    <h5 class="Product_card-title">{{ strlen($product->title) > 20 ? substr($product->title, 0, 20) . '...' : $product->title }}</h5>
                                 </a>
                                 @php
                                 $stoctMeta = $product->productMeta->firstWhere('option', '_stock_status');

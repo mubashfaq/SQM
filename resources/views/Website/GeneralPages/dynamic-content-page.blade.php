@@ -10,6 +10,11 @@
     ->pluck('value', 'option');
     $b_number = $settings['_b_number'] ?? '#';
   @endphp
+  <style>
+    .contact__info{
+      padding: 8px !important;
+    }
+  </style>
   @if ($page->permalink == 'about-us')
     <!-- About Section 1 -->
     <section class="about-sec1">

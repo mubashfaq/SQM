@@ -117,19 +117,19 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="{{route('products.index')}}" class="link-primary text-decoration-none">
+                                    <a href="{{ route('products.index') }}" class="link-primary text-decoration-none">
                                         Products
                                     </a>
-                                </li> 
+                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Shipping Area Group
                                 </li>
-                                
+
                             </ol>
                         </nav>
                     </div>
                 </div>
-                
+
             </div>
         </div>
         <!--/ Breadcrumb End -->
@@ -297,8 +297,7 @@
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
                                     <input class="form-control restrict-input-alphabets addSku" id="sku_group"
-                                        type="text" pattern="[A-Za-z_]+" name="sku" 
-                                        required />
+                                        type="text" pattern="[A-Za-z_]+" name="sku" required />
                                     <label for="sku_group">
                                         <i class="fa fa-barcode text-muted me-1"></i>SKU
                                     </label>
@@ -747,7 +746,6 @@
         $("#edit_area_id").val(areaGroup.edite);
         $("#edit_sku_group").val(areaGroup.sku);
         $("#edit_country_group").val(areaGroup.country);
-        console.log(areaGroup);
 
     }
 
@@ -877,6 +875,7 @@
             type: "GET",
             success: function(response) {
                 $(".group-code-count").text(response.count);
+                console.log(success);
             },
             error: function(xhr, status, error) {
                 // Handle the error if needed
@@ -1007,44 +1006,54 @@
                             $("#deleteCodeModal").modal("show");
                         });
 
-                        // Add click event listener to edit buttons
+                        // Add click event listener to edit buttons (Better State-Based Approach)
                         var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
                         $('.btn-edit-group').on('click', function() {
                             var editButton = $(this);
+                            var isEditMode = editButton.text() === "Edit";
                             var id = editButton.data('id');
                             var titleTd = editButton.closest('tr').find(
-                                '.title-td');
+                            '.title-td');
                             var postcodeTd = editButton.closest('tr').find(
                                 '.postcode-td');
 
-                            // Create input fields with the current title and postcode values
-                            var titleInput = $("<input>").attr("type", "text").val(
-                                titleTd.text());
-                            var postcodeInput = $("<input>").attr("type", "text")
-                                .val(postcodeTd.text());
+                            if (isEditMode) {
+                                // Switch to Edit Mode
+                                var currentTitle = titleTd.text();
+                                var currentPostcode = postcodeTd.text();
 
-                            // Replace the text with the input fields
-                            titleTd.html(titleInput);
-                            postcodeTd.html(postcodeInput);
+                                // Store original values in data attributes
+                                editButton.data('original-title', currentTitle);
+                                editButton.data('original-postcode',
+                                    currentPostcode);
 
-                            // Focus on the title input field
-                            titleInput.focus();
+                                // Create input fields
+                                var titleInput = $("<input>").attr("type", "text")
+                                    .val(currentTitle);
+                                var postcodeInput = $("<input>").attr("type",
+                                    "text").val(currentPostcode);
 
-                            // Update button text to "Save"
-                            editButton.text("Save");
+                                // Replace the text with input fields
+                                titleTd.html(titleInput);
+                                postcodeTd.html(postcodeInput);
 
-                            // Toggle edit and save functionality
-                            editButton.on("click", function() {
-                                var saveButton = $(this);
-                                var updatedTitle = titleInput.val();
-                                var updatedPostcode = postcodeInput.val();
+                                // Focus on the title input field
+                                titleInput.focus();
 
-                                // Make an AJAX request to update the title and postcode
+                                // Update button text to "Save"
+                                editButton.text("Save");
+
+                            } else {
+                                // Switch to Save Mode
+                                var updatedTitle = titleTd.find('input').val();
+                                var updatedPostcode = postcodeTd.find('input')
+                            .val();
+
+                                // Make AJAX request to update
                                 $.ajax({
                                     url: "/admin/area-groups/" +
-                                        areaGroupId + "/codes/" +
-                                        id,
+                                        areaGroupId + "/codes/" + id,
                                     type: "PUT",
                                     headers: {
                                         "X-CSRF-TOKEN": csrfToken,
@@ -1054,22 +1063,31 @@
                                         postcode: updatedPostcode,
                                     },
                                     success: function(response) {
-                                        // Replace the input fields with the updated title and postcode
-                                        titleTd.text(
-                                            updatedTitle);
+                                        // Replace input fields with updated text
+                                        titleTd.text(updatedTitle);
                                         postcodeTd.text(
-                                            updatedPostcode);
+                                        updatedPostcode);
 
                                         // Update button text back to "Edit"
-                                        saveButton.text("Edit");
+                                        editButton.text("Edit");
                                     },
-                                    error: function(xhr, status,
-                                        error) {
-                                        // Handle the error if needed
+                                    error: function(xhr, status, error) {
+                                        // Handle error - restore original values
                                         console.log(error);
+
+                                        var originalTitle = editButton
+                                            .data('original-title');
+                                        var originalPostcode =
+                                            editButton.data(
+                                                'original-postcode');
+
+                                        titleTd.text(originalTitle);
+                                        postcodeTd.text(
+                                            originalPostcode);
+                                        editButton.text("Edit");
                                     },
                                 });
-                            });
+                            }
                         });
 
                     } else {
